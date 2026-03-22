@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import pe.model.UserDao;
 import pe.model.UserDto;
+import pe.model.UserDao;
 
 
 public class LoginController extends HttpServlet {
@@ -33,8 +33,8 @@ public class LoginController extends HttpServlet {
         try {
             String userID = request.getParameter("userID");
             String password = request.getParameter("password");
-            UserDto dao = new UserDto();
-            UserDao user = dao.login(userID, password);
+            UserDao dao = new UserDao();
+            UserDto user = dao.login(userID, password);
             if(user != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("LOGIN_USER", user);
